@@ -1,0 +1,238 @@
+/* --------------------
+Base Reset & Tokens
+--------------------- */
+:root {
+    --bg: #0f172a;
+    --surface: #020617;
+    --muted: #94a3b8;
+    --text: #e5e7eb;
+    --accent: #38bdf8;
+    --win: #22c55e;
+    --lose: #ef4444;
+    --draw: #eab308;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --------------------
+Layout
+--------------------- */
+.game-container {
+    width: min(90%, 420px);
+    text-align: center;
+}
+
+/* Header */
+.game-header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+}
+
+.subtitle {
+    margin-top: 0.4rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+/* --------------------
+Circular Choices
+--------------------- */
+.choices {
+    margin: 2.2rem 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 1.2rem;
+}
+
+.choice {
+    flex: 1;
+    aspect-ratio: 1 / 1;
+    background: var(--surface);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Selected choice */
+.choice.selected {
+    box-shadow: 0 0 0 3px var(--accent);
+    transform: scale(1.05);
+}
+
+.choice:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.choice:active {
+    transform: scale(0.96);
+}
+
+.choice img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.choice:hover {
+    transform: translateY(-6px);
+    background: #020617;
+}
+
+.choice:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+/* --------------------
+Score Board
+--------------------- */
+.score-board {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--surface);
+    border-radius: 14px;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.score .label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.3px;
+}
+
+.score .value {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+/* --------------------
+Message
+--------------------- */
+.msg-container {
+    padding: 0.75rem 1.4rem;
+    background: var(--surface);
+    border-radius: 999px;
+}
+
+#message {
+    font-size: 0.9rem;
+    color: var(--text);
+}
+
+/* --------------------
+Game States (JS)
+--------------------- */
+.win {
+    color: var(--win);
+}
+
+.lose {
+    color: var(--lose);
+}
+
+.draw {
+    color: var(--draw);
+}
+
+/* Win / Lose highlights */
+.choice.win {
+    box-shadow: 0 0 0 3px var(--win);
+}
+
+.choice.lose {
+    box-shadow: 0 0 0 3px var(--lose);
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+.choice.win {
+    animation: pop 0.3s ease;
+}
+
+/* --------------------
+Responsive
+--------------------- */
+@media (max-width: 400px) {
+    .choice {
+        height: 95px;
+    }
+
+    .choice img {
+        width: 48px;
+    }
+}
+
+/* --------------------
+Light Theme
+--------------------- */
+body.light {
+    --bg: #F2EFEA;
+    --surface: #ffffff;
+    --text: #0f172a;
+    --muted: #475569;
+}
+
+/* --------------------
+Controls
+--------------------- */
+.controls {
+    margin-top: 1.6rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.controls button {
+    background: var(--surface);
+    color: var(--text);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.controls button:hover {
+    transform: translateY(-2px);
+}
+
+#theme-toggle {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    font-size: 1.1rem;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper & Scissors</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.png" type="image/png">
+</head>
+<body>
+    <main class="game-container">
+        <!-- Header -->
+        <header class="game-header">
+            <h1>Rock, Paper & Scissors</h1>
+            <p class="subtitle">Choose wisely & Beat the shit out of this computer.</p>
+        </header>
+        <!-- Choices -->
+        <section class="choices" aria-label="Game choices">
+            <button class="choice" id="rock" aria-label="Rock">
+                <img src="/images/rock.png" alt="Rock icon">
+            </button>
+            <button class="choice" id="paper" aria-label="Paper">
+                <img src="/images/paper.png" alt="Paper icon">
+            </button>
+            <button class="choice" id="scissors" aria-label="Scissors">
+                <img src="/images/scissors.png" alt="Scissors icon">
+            </button>
+        </section>
+        <!-- Scoreboard -->
+        <section class="score-board" aria-label="Score board">
+            <div class="score">
+                <span class="label">Player</span>
+                <span id="user-score" class="value">0</span>
+            </div>
+            <div class="score">
+                <span class="label">Computer</span>
+                <span id="computer-score" class="value">0</span>
+            </div>
+        </section>
+        <!-- Message -->
+        <section class="msg-container" aria-live="polite">
+            <p id="message">Make your move!</p>
+        </section>
+        <!-- Controls -->
+        <section class="controls">
+            <button id="reset-btn">Reset Game</button>
+            <button id="theme-toggle" aria-label="Toggle theme">
+                🌙
+            </button>
+        </section>
+    </main>
+    <!-- Script -->
+    <script src="app.js"></script>
+</body>
+</html>
