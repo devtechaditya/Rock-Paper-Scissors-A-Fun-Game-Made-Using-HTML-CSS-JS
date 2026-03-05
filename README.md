@@ -40,3 +40,12 @@ The goal of this project is to practice **core frontend fundamentals** such as *
 
 If you like this project, don’t forget to **star ⭐ the repository**!  
 Built with ❤️ to practice frontend fundamentals
+
+---
+
+## 📸 Snapshots
+
+<p align="center">
+  <img src="Dark Mode.png" alt="Dark Mode" width="45%">
+  <img src="Light Mode.png" alt="Light Mode" width="45%">
+</p>
